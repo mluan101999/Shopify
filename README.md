@@ -1,1 +1,1 @@
-# shop_simple
+<!-- xxxxxxxxxxxxxx -->
