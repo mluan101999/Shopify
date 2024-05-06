@@ -31,6 +31,7 @@ const Home = () => {
       <TopProduct />
       <Banner />
       <NewArrival/>
+      <Footer/>
     </div>
   );
 };

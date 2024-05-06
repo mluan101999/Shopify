@@ -4,9 +4,17 @@ import StarIcon from "@mui/icons-material/Star";
 import { Button } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/feature/cartSlice";
 
 const BoxProduct = ({item}) => {
-  // const {thumbnail,title,price,rating,discountPercentage,category} = item;
+  const dispatch = useDispatch();
+  const handleAddToCart = (item) =>{
+    dispatch(addToCart({
+      ...item,
+      quantity:0,
+    }));
+  }
   return (
     <div key={item.id} className="box-product">
     <img src={item.thumbnail} />
@@ -69,6 +77,7 @@ const BoxProduct = ({item}) => {
         <Button
           variant="contained"
           style={{ backgroundColor: "rgb(204, 49, 139)" }}
+          onClick={() => handleAddToCart(item)}
         >
           <FontAwesomeIcon
             icon={faCartShopping}

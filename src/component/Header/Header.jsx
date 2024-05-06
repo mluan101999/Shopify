@@ -7,38 +7,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Box, Button, Divider } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
+import CartList from "./CartList";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartItem = useSelector((state) => state.cartSlice.cartItem);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
   const DrawerContent = (
-    <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 300 }} role="presentation">
       <Button onClick={toggleDrawer(false)}></Button>
-      <h3 style={{ marginLeft: 7 }}>Giỏ hàng</h3>
+      <h3 style={{ marginLeft: 7 }}>Cart</h3>
       <Divider />
-      <div className="list-cart">
-        <div className="box-cart">
-          <div>
-            <img src="https://picsum.photos/200/300" width={"50px"} height={"50px"} />
-          </div>
-          <div>
-            <p>Iphone</p>
-            <p>$999</p>
-            <div style={{display:"flex"}}>
-            <button>+</button>
-            <p>Số lượng</p>
-            <button>-</button>
-            </div>
-
-          </div>
-        </div>
-        <div className="box-cart">SP1</div> 
-        <div className="box-cart">SP1</div> 
-        <div className="box-cart">SP1</div>
-
-      </div>
+      {cartItem.map((item) => (
+        <CartList key={item.id} item={item} />
+      ))}
+      <h3>Total:200000000</h3>
     </Box>
   );
 
@@ -71,14 +57,13 @@ const Header = () => {
             }}
           />
           <h4 style={{ cursor: "pointer" }}>Login</h4>
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", cursor: "pointer" }}>
             <FontAwesomeIcon
               icon={faCartShopping}
               style={{
                 marginLeft: "20px",
                 marginRight: "5px",
                 color: "gray",
-                cursor: "pointer",
               }}
               onClick={toggleDrawer(true)}
             />

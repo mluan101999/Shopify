@@ -8,7 +8,9 @@
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   position: sticky;
+  top: 0;
   width: 100%;
+  background-color: #ffffff;
 }
 .header1 {
   /* background-color: red; */
@@ -52,7 +54,7 @@
 /* Done header */
 
 .panel {
-  margin-top:0cm;
+  margin-top: 0cm;
   width: 100%;
   background-color: rgb(131, 199, 200);
   height: auto;
@@ -210,28 +212,29 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  background-color: #00CCFF;
-  box-shadow: #00CCFF 0px 3px 8px;
+  background-color: #00ccff;
+  box-shadow: #00ccff 0px 3px 8px;
 }
 
-.list-cart{
+.list-cart {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
   flex-direction: column;
-  margin-top:5px ;
+  margin-top: 5px;
 }
 
-.box-cart{
+.box-cart {
   width: 100%;
   height: auto;
   border-bottom: 1px solid gray;
   display: flex;
   flex-direction: row;
+  margin: 6px;
 }
-.box-cart p{
+.box-cart p {
   margin: 0;
   margin-left: 2px;
 }

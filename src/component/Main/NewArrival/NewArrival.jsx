@@ -4,7 +4,6 @@ import BoxProduct from "../BoxProduct";
 
 const NewArrival = () => {
   const dataNewProduct = useSelector((state) => state.productSlice.newProduct);
-  console.log(dataNewProduct)
   return (
     <div className="new">
       <h1>New Arrival</h1><div className="new-product">
