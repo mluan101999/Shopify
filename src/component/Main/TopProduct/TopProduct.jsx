@@ -1,9 +1,5 @@
-import { Button, Rating } from '@mui/material';
 import React from 'react'
 import { useSelector } from 'react-redux'
-import StarIcon from "@mui/icons-material/Star";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import BoxProduct from '../BoxProduct';
 
 const TopProduct = () => {

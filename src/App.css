@@ -213,3 +213,25 @@
   background-color: #00CCFF;
   box-shadow: #00CCFF 0px 3px 8px;
 }
+
+.list-cart{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  margin-top:5px ;
+}
+
+.box-cart{
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: row;
+}
+.box-cart p{
+  margin: 0;
+  margin-left: 2px;
+}
