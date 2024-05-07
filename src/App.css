@@ -1,22 +1,18 @@
+
 .header {
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 100px;
+  height: 70px;
   box-shadow: #0099ff 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
 }
 .header1 {
-  /* background-color: red; */
   height: 100%;
-  width: 85%;
-  /* margin: auto; */
+  width: 87%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,23 +50,22 @@
 /* Done header */
 
 .panel {
-  margin-top: 0cm;
-  width: 100%;
-  background-color: rgb(131, 199, 200);
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 100px;
+  margin-top: 0cm; 
+    width: 100%;
+    background-color: rgb(131, 199, 200);
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .panel-content {
   height: 100%;
-  width: 90%;
-  /* margin: auto; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+    width: 87%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .panel-content-left {
   width: 35%;
@@ -127,14 +122,14 @@
 
 .list-product {
   display: flex;
-  gap: 10px;
+  gap: 23px;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
 }
 .box-product {
   width: 22%;
-  border: 1px solid gray;
+  border: 1px solid rgba(231, 178, 178, 0.584);
   border-radius: 10px;
   padding: 10px;
 }
@@ -195,7 +190,7 @@
 
 .list-new-product {
   display: flex;
-  gap: 10px;
+  gap: 23px;
   flex-wrap: wrap;
 }
 
@@ -237,4 +232,7 @@
 .box-cart p {
   margin: 0;
   margin-left: 2px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Roboto';
 }

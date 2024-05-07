@@ -44,7 +44,7 @@ const BoxProduct = ({item}) => {
         }}
       >
         <p style={{ color: "blue", fontSize: "20px" }}>
-          $ {(item.price -(item.discountPercentage / 100) * item.price).toFixed(2)}
+          $ {(item.price -((item.discountPercentage / 100) * item.price)).toFixed(2)}
         </p>
         <div
           style={{

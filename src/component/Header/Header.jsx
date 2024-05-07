@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faMagnifyingGlass,
+  faReceipt,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Box, Button, Divider } from "@mui/material";
@@ -16,15 +17,47 @@ const Header = () => {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+  let total = 0;
+  const getTotal = cartItem.map((item) => {
+    return (
+      total += (((item.price -(item.discountPercentage / 100) * item.price).toFixed(2)) * item.quantity)
+      
+    );
+  });
+  console.log(total);
   const DrawerContent = (
     <Box sx={{ width: 300 }} role="presentation">
       <Button onClick={toggleDrawer(false)}></Button>
-      <h3 style={{ marginLeft: 7 }}>Cart</h3>
+      <h3 style={{ marginLeft: 16 }}>Cart</h3>
       <Divider />
       {cartItem.map((item) => (
         <CartList key={item.id} item={item} />
       ))}
-      <h3>Total:200000000</h3>
+      {cartItem.length !== 0 ? (
+        <div style={{}}>
+          <h3 style={{ marginLeft: 16 }}>Total: {total.toFixed(2)} $</h3>
+          <Button
+            variant="contained"
+            style={{
+              backgroundColor: "rgb(204, 49, 139)",
+              width: "90%",
+              margin: "0px 15px",
+            }}
+          >
+            <FontAwesomeIcon
+              icon={faReceipt}
+              style={{
+                padding: 0,
+                marginRight: "10px",
+                color: "white",
+              }}
+            />
+            Checkout
+          </Button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </Box>
   );
 
@@ -81,7 +114,7 @@ const Header = () => {
                 justifyContent: "center",
               }}
             >
-              17
+              {cartItem.length}
             </b>
           </div>
         </div>

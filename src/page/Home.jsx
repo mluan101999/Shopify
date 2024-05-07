@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { ListProduct, NewProduct } from "../redux/feature/productSlice";
 import Banner from "../component/Main/Banner/Banner";
 import NewArrival from "../component/Main/NewArrival/NewArrival";
+import { addToCart, loadCartFromStore } from "../redux/feature/cartSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,12 @@ const Home = () => {
     dispatch(ListProduct(products.slice(0, 8)));
     dispatch(NewProduct(products.slice(9,17)));
   };
-
+  if(localStorage.getItem('cartItems')){
+    const arrayItems = JSON.parse(localStorage.getItem('cartItems'));
+    dispatch(loadCartFromStore(arrayItems));
+  }else{
+    localStorage.setItem('cartItems', []);
+  }
   useEffect(() => {
     loadDataTopProduct();
   }, []);
