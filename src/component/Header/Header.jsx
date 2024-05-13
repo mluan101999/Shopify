@@ -3,70 +3,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faMagnifyingGlass,
-  faReceipt,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { Box, Button, Divider } from "@mui/material";
-import Drawer from "@mui/material/Drawer";
-import CartList from "./CartList";
-import { useSelector } from "react-redux";
+import { Box, Button, Dialog, Divider } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import DialogLogin from "../DialogLogin";
+import { updateStateLogin } from "../../redux/feature/authentSlice";
+import LoginPopup from "../LoginPopup";
+import { NavLink } from "react-router-dom";
+import { DrawerCart } from "../DrawerCart";
+import { updateOpenDrawer } from "../../redux/feature/drawerSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.authentSlice.isLogin);
   const cartItem = useSelector((state) => state.cartSlice.cartItem);
-  const [open, setOpen] = useState(false);
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
+
+  const handleClickLogin = () => {
+    dispatch(updateStateLogin(true));
   };
-  let total = 0;
-  const getTotal = cartItem.map((item) => {
-    return (
-      total += (((item.price -(item.discountPercentage / 100) * item.price).toFixed(2)) * item.quantity)
-      
-    );
-  });
-  console.log(total);
-  const DrawerContent = (
-    <Box sx={{ width: 300 }} role="presentation">
-      <Button onClick={toggleDrawer(false)}></Button>
-      <h3 style={{ marginLeft: 16 }}>Cart</h3>
-      <Divider />
-      {cartItem.map((item) => (
-        <CartList key={item.id} item={item} />
-      ))}
-      {cartItem.length !== 0 ? (
-        <div style={{}}>
-          <h3 style={{ marginLeft: 16 }}>Total: {total.toFixed(2)} $</h3>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "rgb(204, 49, 139)",
-              width: "90%",
-              margin: "0px 15px",
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faReceipt}
-              style={{
-                padding: 0,
-                marginRight: "10px",
-                color: "white",
-              }}
-            />
-            Checkout
-          </Button>
-        </div>
-      ) : (
-        <div></div>
-      )}
-    </Box>
-  );
+
+  const handleOpenDrawerCart = () => {
+    if (!isLogin) {
+      dispatch(updateStateLogin(true));
+    } else {
+      dispatch(updateOpenDrawer(true));
+    }
+  };
 
   return (
     <div className="header">
       <div className="header1">
         {/* Logo and search */}
         <div>
-          <h1>Shopify</h1>
+          <NavLink to="/" style={{ color: "black", textDecoration: "none" }}>
+            <h1>Shopify</h1>
+          </NavLink>
           <div className="input">
             <input placeholder="Search for a product ..."></input>
             <FontAwesomeIcon
@@ -79,17 +51,44 @@ const Header = () => {
 
         {/* Icon */}
         <div className="user">
-          <h4 style={{ cursor: "pointer" }}>Product</h4>
-          <FontAwesomeIcon
-            icon={faUser}
-            style={{
-              marginLeft: "20px",
-              marginRight: "5px",
-              color: "gray",
-              cursor: "pointer",
-            }}
-          />
-          <h4 style={{ cursor: "pointer" }}>Login</h4>
+          <NavLink
+            to="/product"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            <h4 style={{ cursor: "pointer" }}>Product</h4>
+          </NavLink>
+          {isLogin ? (
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{
+                marginLeft: "20px",
+                marginRight: "5px",
+                color: "gray",
+                cursor: "pointer",
+              }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{
+                marginLeft: "20px",
+                marginRight: "5px",
+                color: "gray",
+                cursor: "pointer",
+                visibility: "hidden",
+              }}
+            />
+          )}
+
+          <h4 style={{ cursor: "pointer" }}>
+            {isLogin ? (
+              <LoginPopup />
+            ) : (
+              <Button variant="contained" onClick={handleClickLogin}>
+                Login
+              </Button>
+            )}
+          </h4>
           <div style={{ position: "relative", cursor: "pointer" }}>
             <FontAwesomeIcon
               icon={faCartShopping}
@@ -98,7 +97,7 @@ const Header = () => {
                 marginRight: "5px",
                 color: "gray",
               }}
-              onClick={toggleDrawer(true)}
+              onClick={handleOpenDrawerCart}
             />
             <b
               style={{
@@ -119,10 +118,9 @@ const Header = () => {
           </div>
         </div>
         {/* Icon */}
-
-        <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-          {DrawerContent}
-        </Drawer>
+        <DialogLogin />
+       
+        <DrawerCart cartItem={cartItem}/>
       </div>
     </div>
   );

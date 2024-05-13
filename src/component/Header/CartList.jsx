@@ -5,6 +5,8 @@ import {
   reduceFromCart,
   removeFromCart,
 } from "../../redux/feature/cartSlice";
+// import { IoMdAddCircleOutline } from "react-icons/io";
+
 
 const CartList = ({ item }) => {
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ const CartList = ({ item }) => {
           <p style={{ fontWeight: "bold" }}>
             ${parseFloat((item.price - (item.discountPercentage / 100) * item.price) * item.quantity).toFixed(2)}
           </p>
-          <div style={{ display: "flex",marginBottom:"6px" }}>
+          <div style={{ display: "flex",marginBottom:"7px" }}>
           <button
               style={{ marginRight: "5px" }}
               onClick={() => dispatch(reduceFromCart(item.id))}
@@ -36,6 +38,7 @@ const CartList = ({ item }) => {
               -
             </button>
             <p style={{ fontWeight: "bold" }}>{item.quantity}</p>
+           
             <button
               style={{ marginLeft: "5px" }}
               onClick={() => handleAddToCart(item)}

@@ -9,8 +9,9 @@ import { addToCart } from "../../redux/feature/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { updateStateLogin } from "../../redux/feature/authentSlice";
+import { removeFromWishlist } from "../../redux/feature/wishlistSlice";
 
-const BoxProduct = ({ item }) => {
+const WishlistProduct = ({ item }) => {
   const isLogin = useSelector((state) => state.authentSlice.isLogin);
   const dispatch = useDispatch();
   const handleClose = () => {
@@ -31,7 +32,7 @@ const BoxProduct = ({ item }) => {
     }
   };
   return (
-    <div key={item.id} className="box-product">
+    <div key={item.id} className="box-product" style={{marginBottom:"10px"}}>
       <Link to={{ pathname: `/product/${item.id}` }}>
         <img
           src={item.thumbnail}
@@ -95,7 +96,13 @@ const BoxProduct = ({ item }) => {
             flexDirection: "column",
           }}
         >
-          <Button
+          
+          
+          <Toaster />
+        </div>
+      </div>
+      <div style={{display:"flex",gap:"10px",marginTop:"5px"}}>
+      <Button
             variant="contained"
             style={{ backgroundColor: "rgb(204, 49, 139)" }}
             onClick={() => handleAddToCart(item)}
@@ -110,11 +117,24 @@ const BoxProduct = ({ item }) => {
             />
             ADD TO CART
           </Button>
-          <Toaster />
-        </div>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "rgb(209, 70, 70)" }}
+            onClick={() => dispatch(removeFromWishlist(item.id))}
+          >
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              style={{
+                padding: 0,
+                marginRight: "5px",
+                color: "white",
+              }}
+            />
+            DELETE
+          </Button>
       </div>
     </div>
   );
 };
 
-export default BoxProduct;
+export default WishlistProduct;
