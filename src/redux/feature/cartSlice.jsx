@@ -15,6 +15,7 @@ const cartSlice = createSlice({
         toast.success("Added to cart", {
           duration: 1000,
           position: "bottom-center",
+          autoClose: 15000,
         })  
         const item = {
           ...action.payload,
