@@ -97,7 +97,7 @@ const BoxProduct = ({ item }) => {
         >
           <Button
             variant="contained"
-            style={{ backgroundColor: "rgb(204, 49, 139)" }}
+            style={{ backgroundColor: "rgb(200,101,253)" }}
             onClick={() => handleAddToCart(item)}
           >
             <FontAwesomeIcon

@@ -77,7 +77,6 @@ const Product = () => {
             display: "flex",
             gap: "5px",
             flexWrap: "wrap",
-            width: "100%",
             height: "auto",
           }}
         >

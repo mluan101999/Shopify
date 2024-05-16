@@ -9,8 +9,8 @@ import { useDispatch } from "react-redux";
 import { ListProduct, NewProduct } from "../redux/feature/productSlice";
 import Banner from "../component/Main/Banner/Banner";
 import NewArrival from "../component/Main/NewArrival/NewArrival";
-import { addToCart, loadCartFromStore } from "../redux/feature/cartSlice";
-
+import { loadCartFromStore } from "../redux/feature/cartSlice";
+import SaleProduct from "../component/Main/Sale/SaleProduct";
 const Home = () => {
   const dispatch = useDispatch();
   const loadDataTopProduct = async () => {
@@ -35,8 +35,10 @@ const Home = () => {
       <Panel />
       <Policy />
       <TopProduct />
-      <Banner />
+      <SaleProduct/>
+      {/* <Banner /> */}
       <NewArrival/>
+      {/* <Divider />   */}
       <Footer/>
     </div>
   );

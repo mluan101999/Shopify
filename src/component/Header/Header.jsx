@@ -37,7 +37,7 @@ const Header = () => {
         {/* Logo and search */}
         <div>
           <NavLink to="/" style={{ color: "black", textDecoration: "none" }}>
-            <h1>Shopify</h1>
+            <h1 className="h1-header">LuanStore</h1>
           </NavLink>
           <div className="input">
             <input placeholder="Search for a product ..."></input>

@@ -58,7 +58,7 @@ function DialogLogin() {
           <div>
             <TextField
               id="standard-username"
-              label="Username"
+              label="Username (mluan99)"
               variant="standard"
               name="username"
               onChange={handleChange}
@@ -68,7 +68,7 @@ function DialogLogin() {
             <TextField
             type="password"
               id="standard-password"
-              label="Password"
+              label="Password (291099)"
               variant="standard"
               name="password"
               onChange={handleChange}
