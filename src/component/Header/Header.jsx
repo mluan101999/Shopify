@@ -13,7 +13,7 @@ import LoginPopup from "../LoginPopup";
 import { NavLink } from "react-router-dom";
 import { DrawerCart } from "../DrawerCart";
 import { updateOpenDrawer } from "../../redux/feature/drawerSlice";
-
+import logo from "../../assets/images/logo.png";
 const Header = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.authentSlice.isLogin);
@@ -38,6 +38,7 @@ const Header = () => {
         <div>
           <NavLink to="/" style={{ color: "black", textDecoration: "none" }}>
             <h1 className="h1-header">LuanStore</h1>
+      {/* <img src={logo} width={"100px"} height={"50px"}/> */}
           </NavLink>
           <div className="input">
             <input placeholder="Search for a product ..."></input>

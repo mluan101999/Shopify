@@ -7,7 +7,7 @@ const PolicyOption = (props) => {
       style={{
         width: "23%",
         height: "auto",
-        backgroundColor: "#DDDDDD",
+        backgroundColor: "#cdc8ce",
         marginRight: "5",
         display: "flex",
         gap: 15,
