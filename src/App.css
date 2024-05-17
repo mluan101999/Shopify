@@ -145,7 +145,7 @@
 
 .list-product {
   display: flex;
-  gap: 20px;
+  gap: 13px;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
