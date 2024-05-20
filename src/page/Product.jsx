@@ -34,6 +34,7 @@ const Product = () => {
   const updateAllProduct = getallProduct.filter(
     (product) => product.category === category
   );
+  
 
   console.log(category);
   return (

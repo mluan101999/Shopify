@@ -4,13 +4,11 @@
 
 .header {
   height: 65px;
-  /* box-shadow: #0099ff 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
   position: sticky;
   top: 0;
   width: 100%;
   background-color: white;
+  z-index: 100;
 }
 
 .header1 {
@@ -48,7 +46,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 .header1 div:first-child input {
   width: 90%;
@@ -149,10 +146,6 @@
   flex-wrap: wrap;
   width: 100%;
   height: auto;
-  /* background-image: url("https://www.shutterstock.com/image-photo/blurred-shadow-palm-leaves-on-600nw-2261327067.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
 }
 
 .box-product {
@@ -160,7 +153,6 @@
   border: 1px solid rgba(231, 178, 208, 0.584);
   border-radius: 10px;
   padding: 10px;
-
 }
 
 .box-product img {
@@ -185,15 +177,7 @@
   object-fit: cover;
 }
 
-
-
 .banner {
-  /* height: auto;  */
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* padding: 0 100px; */
-  /* margin-top: 10px; */
   background-color: #eaeaea;
   width: 100%;
 }
@@ -227,8 +211,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* align-items: center; */
   padding: 0 100px;
   background-color: #eaeaea;
   padding-bottom: 10px;
@@ -353,12 +335,6 @@
   gap: 10px;
 }
 
-.checkOut {
-  width: 90%;
-  height: auto;
-  margin: auto;
-}
-
 .slideProduct {
   width: 90% !important;
   height: auto;
@@ -366,7 +342,7 @@
   padding: 40px 20px;
 }
 
-.h1-sale{
+.h1-sale {
   background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbMc0Aw-_cYkYvjszPfg4q95gO5CQh-kXk54thvzIjUg&s");
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -380,19 +356,6 @@
   visibility: visible;
   height: auto;
 }
-
-/* Slide */
-/* .each-slide-effect > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 350px;
-}
-
-.slick-prev:before, .slick-next:before {
-  color: white;
-} */
 
 .button1 {
   font-size: 16px;
@@ -531,27 +494,28 @@ button:hover .border {
 }
 
 .loader-ring-a {
-  stroke: #9708F4;
+  stroke: #9708f4;
 }
 
 .loader-ring-b {
   animation-name: ringB;
-  stroke: #5E14E4;
+  stroke: #5e14e4;
 }
 
 .loader-ring-c {
   animation-name: ringC;
-  stroke: #9708F4;
+  stroke: #9708f4;
 }
 
 .loader-ring-d {
   animation-name: ringD;
-  stroke: #5E14E4;
+  stroke: #5e14e4;
 }
 
 /* Animations */
 @keyframes ringA {
-  from, 4% {
+  from,
+  4% {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -330;
@@ -569,7 +533,8 @@ button:hover .border {
     stroke-dashoffset: -595;
   }
 
-  40%, 54% {
+  40%,
+  54% {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -660;
@@ -587,7 +552,8 @@ button:hover .border {
     stroke-dashoffset: -925;
   }
 
-  90%, to {
+  90%,
+  to {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -990;
@@ -595,7 +561,8 @@ button:hover .border {
 }
 
 @keyframes ringB {
-  from, 12% {
+  from,
+  12% {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -110;
@@ -613,7 +580,8 @@ button:hover .border {
     stroke-dashoffset: -195;
   }
 
-  48%, 62% {
+  48%,
+  62% {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -631,7 +599,8 @@ button:hover .border {
     stroke-dashoffset: -305;
   }
 
-  98%, to {
+  98%,
+  to {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -330;
@@ -657,7 +626,8 @@ button:hover .border {
     stroke-dashoffset: -175;
   }
 
-  36%, 58% {
+  36%,
+  58% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -675,7 +645,8 @@ button:hover .border {
     stroke-dashoffset: -395;
   }
 
-  94%, to {
+  94%,
+  to {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -440;
@@ -683,7 +654,8 @@ button:hover .border {
 }
 
 @keyframes ringD {
-  from, 8% {
+  from,
+  8% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: 0;
@@ -701,7 +673,8 @@ button:hover .border {
     stroke-dashoffset: -175;
   }
 
-  44%, 50% {
+  44%,
+  50% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -719,9 +692,241 @@ button:hover .border {
     stroke-dashoffset: -395;
   }
 
-  86%, to {
+  86%,
+  to {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -440;
   }
 }
+
+/* Button Delete */
+.bin-button {
+  margin-left: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(18deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+
+/* Button Buy Now */
+.button {
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #222;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: rgb(69, 102, 223);
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Arial";
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: #555;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: 0.25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,
+.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,
+.text1,
+.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text1 {
+  top: 0;
+}
+
+.text1,
+.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: rgb(69, 102, 223);
+}
+
+.button:hover .text1 {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,
+.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+/* Page CheckOut */
+.checkOut {
+  width: 90%;
+  /* height: auto; */
+  margin: auto;
+  display: flex;
+  padding: 15px;
+  gap: 5px;
+}
+
+.checkOutInfo {
+  width: 60%;
+  height: auto;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.checkOutOrder {
+  width: 40%;
+  height: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infomation {
+  width: 90%;
+  display: flex;
+  height: auto;
+  background-color: #dfdede;
+  border-radius: 25px;
+  gap: 10px;
+  flex-direction: column;
+  padding-top: 17px;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+.shippingAddress{
+  width: 90%;
+  display: flex;
+  height: auto;
+  background-color: #dfdede;
+  border-radius: 25px;
+  gap: 10px;
+  flex-direction: column;
+  padding-top: 17px;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+.voucher{
+  width: 90%;
+  display: flex;
+  height: auto;
+  background-color: #dfdede;
+  border-radius: 25px;
+  gap: 10px;
+  flex-direction: column;
+  padding-top: 17px;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+.paymentMethod{
+  width: 90%;
+  display: flex;
+  height: auto;
+  background-color: #dfdede;
+  border-radius: 25px;
+  gap: 10px;
+  flex-direction: column;
+  padding-top: 17px;
+  padding-left: 15px;
+  padding-bottom: 17px;
+}
+
+

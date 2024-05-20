@@ -48,7 +48,12 @@ export default function LoginPopup() {
       >
         <MenuItem onClick={handleClose}>
           <ImProfile style={{ marginRight: "7px" }} />
-          Profile
+          <NavLink
+            to="/profile"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            Profile
+          </NavLink>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <FontAwesomeIcon icon={faHeart} style={{ marginRight: "7px" }} />

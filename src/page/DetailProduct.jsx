@@ -34,7 +34,7 @@ export const DetailProduct = () => {
     images: [],
   });
   const [similarProduct, setSimilarProduct] = useState([]);
-  const [img,setImg] = useState(null);
+  const [img, setImg] = useState(null);
   const { id } = useParams();
   const loadDataDetail = async () => {
     const data = await ApiService.ApiDetail(id);
@@ -66,7 +66,7 @@ export const DetailProduct = () => {
   };
 
   const handleBuyNow = () => {
-    if(isLogin){
+    if (isLogin) {
       dispatch(
         addToCart({
           ...detailProduct,
@@ -74,22 +74,22 @@ export const DetailProduct = () => {
         })
       );
       dispatch(updateOpenDrawer(true));
-    }else {
+    } else {
       dispatch(updateStateLogin(true));
     }
   };
 
   const handleAddToWishlist = () => {
-    if(isLogin){
-      dispatch(addToWishlist(detailProduct))
-    }else{
+    if (isLogin) {
+      dispatch(addToWishlist(detailProduct));
+    } else {
       dispatch(updateStateLogin(true));
     }
-  }
+  };
 
-  const handleGetImg =(img) => {
-    setImg(img)
-  }
+  const handleGetImg = (img) => {
+    setImg(img);
+  };
   console.log(img);
   return (
     <>
@@ -113,7 +113,7 @@ export const DetailProduct = () => {
                 marginTop: "10px",
               }}
             >
-              {detailProduct.images.map((img,index) => (
+              {detailProduct.images.map((img, index) => (
                 <img
                   key={index}
                   src={img}
@@ -137,12 +137,7 @@ export const DetailProduct = () => {
               }
             />
             <h4 style={{ color: "rgb(69, 102, 223)" }}>
-              {" "}
-              ${" "}
-              {(
-                detailProduct.price -
-                (detailProduct.discountPercentage / 100) * detailProduct.price
-              ).toFixed(2)}
+              $ {(detailProduct.price -(detailProduct.discountPercentage / 100) * detailProduct.price).toFixed(2)}
             </h4>
             <div
               style={{
@@ -187,21 +182,36 @@ export const DetailProduct = () => {
                 />
                 ADD TO CART
               </Button>
-              <Button
-                variant="contained"
-                style={{ backgroundColor: "rgb(69, 102, 223)" }}
-                onClick={handleBuyNow}
-              >
-                <FontAwesomeIcon
+             
+
+              <div data-tooltip={(detailProduct.price -(detailProduct.discountPercentage / 100) * detailProduct.price).toFixed(2)} class="button" onClick={handleBuyNow}>
+                <div class="button-wrapper">
+                  <div class="text1">
+                  <FontAwesomeIcon
                   icon={faBagShopping}
                   style={{
                     padding: 0,
-                    marginRight: "5px",
+                    marginRight: "6px",
                     color: "white",
                   }}
                 />
                 BUY NOW
-              </Button>
+                  </div>
+                  <span class="icon">
+                    <svg
+                      viewBox="0 0 16 16"
+                      class="bi bi-cart2"
+                      fill="currentColor"
+                      height="16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
               <Button
                 variant="contained"
                 style={{ backgroundColor: "rgb(47, 240, 159)" }}
