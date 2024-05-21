@@ -86,17 +86,6 @@ const CartList = ({ item }) => {
                 <path d="M21 6V29" stroke="white" stroke-width="4"></path>
               </svg>
             </button>
-            {/* <button
-              style={{
-                marginLeft: "116px",
-                backgroundColor: "#eb0f0f",
-                borderRadius: "5px",
-                color: "white",
-              }}
-              onClick={() => dispatch(removeFromCart(item.id))}
-            >
-              X
-            </button> */}
           </div>
         </div>
       </div>

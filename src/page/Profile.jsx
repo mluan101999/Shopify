@@ -7,14 +7,19 @@ const Profile = () => {
     <>
       <Header />
       <div className='profile'>
-        <div className='profileLeft'>
+        <div style={{display:"flex",marginLeft:"20px"}}>
           <img src={avt} width={"200px"} height={"200px"} style={{ objectFit: 'cover', borderRadius: "100%", margin: "10px 60px" }} />
-          <div style={{ backgroundColor: "#d5dee6", padding: "10px", borderRadius: "30px", width: "80%" }}>
+          <div style={{width:"50%",height:"185px",padding:"15px",display:"flex",flexDirection:"column",borderRadius:"30px"}}>
+            <h1 style={{marginTop:"40px"}}>Lang Minh Luan</h1>
             <h3>React Developer</h3>
-            <p>Name: Lang Minh Luan</p>
-            <p>DoB: 29/10/1999</p>
+          </div>
+        </div>
+        <div className='profileBottom'>
+          <div className='profileLeft'>
+          <div style={{ backgroundColor: "#d5dee6", padding: "10px", borderRadius: "30px", width: "80%" }}> 
+            <p>Birthday: 29/10/1999</p>
             <p>Email: mluan101999@gmail.com</p>
-            <p>Phone Number: 0762930580</p>
+            <p>Phone: 0762930580</p>
             <h3>EDUCATION</h3>
             <Divider style={{ width: "80%", margin: 0 }} />
             <p>Infomation Technology</p>
@@ -30,7 +35,7 @@ const Profile = () => {
           </div>
         </div>
         <div className='profileRight'>
-          <div style={{padding: "10px", borderRadius: "30px", width: "80%",marginTop:"175px",marginLeft:"-55px" }}>
+          <div style={{padding: "10px", borderRadius: "30px", width: "80%" }}>
             <h3>OBJECTIVE</h3>
             <Divider style={{ width: "80%", margin: 0 }} />
             <p>To become a software developer in the future. Learning about new technologies.</p>
@@ -56,7 +61,7 @@ const Profile = () => {
             </ul>
           </div>
         </div>
-
+        </div>
       </div>
 
     </>

@@ -112,8 +112,8 @@ const Checkout = () => {
               <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
               <FormControlLabel control={<Checkbox defaultChecked />} label="Cash on delivery - COD" />
             </div>
-
           </div>
+
           <div className="checkOutOrder">
             <h3 style={{ margin: 0 }}>Item</h3>
             <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
@@ -126,7 +126,6 @@ const Checkout = () => {
                 <div style={{width:"50%"}}>
                   <div style={{ marginLeft: "20px", marginRight: "200px",width:"100%" }}>
                     <h5>{item.title}</h5>
-                    <button>remove</button>
                   </div>
                 </div>
                 <div style={{width:"15%",marginLeft:"98px"}}>
@@ -138,7 +137,7 @@ const Checkout = () => {
             <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <p>Subtotal</p>
-              <p>${total}</p>
+              <p>${total.toFixed(2)}</p>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <p>Discount</p>
@@ -151,7 +150,12 @@ const Checkout = () => {
             <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h4>Total</h4>
-              <h4>${total + shipping}</h4>
+              <h4>${(total + shipping).toFixed(2)}</h4>
+            </div>
+            <div style={{display:"flex",justifyContent:"flex-end"}}>
+              <button class="btn"> 
+                  PLACE ORDER
+              </button>
             </div>
           </div>
         </div>
