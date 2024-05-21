@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -10,14 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import DialogLogin from "../DialogLogin";
 import { updateStateLogin } from "../../redux/feature/authentSlice";
 import LoginPopup from "../LoginPopup";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import { DrawerCart } from "../DrawerCart";
 import { updateOpenDrawer } from "../../redux/feature/drawerSlice";
-import logo from "../../assets/images/logo.png";
 const Header = () => {
+  const navigate= useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.authentSlice.isLogin);
   const cartItem = useSelector((state) => state.cartSlice.cartItem);
+  const searchInputRef = useRef(null);
 
   const handleClickLogin = () => {
     dispatch(updateStateLogin(true));
@@ -31,6 +32,12 @@ const Header = () => {
     }
   };
 
+
+  const handleSearch =() => {
+    const searchValue = searchInputRef.current.value;
+    navigate("/search",{state:{searchValue}})
+  }
+
   return (
     <div className="header">
       <div className="header1">
@@ -38,13 +45,13 @@ const Header = () => {
         <div>
           <NavLink to="/" style={{ color: "black", textDecoration: "none" }}>
             <h1 className="h1-header">LuanStore</h1>
-      {/* <img src={logo} width={"100px"} height={"50px"}/> */}
           </NavLink>
           <div className="input">
-            <input placeholder="Search for a product ..."></input>
+            <input placeholder="Search for a product ..." ref={searchInputRef}></input>
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               style={{ marginLeft: "5px", color: "white" }}
+              onClick={handleSearch}
             />
           </div>
         </div>

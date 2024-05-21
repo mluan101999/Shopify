@@ -4,6 +4,7 @@ const URL = "https://dummyjson.com/products/";
 const URL_Category = "https://dummyjson.com/products/category"
 const URL_Allproducts = "https://dummyjson.com/products?limit=100"
 const URL_Categories = "https://dummyjson.com/products/categories"
+const URL_Search = `https://dummyjson.com/products/search?q=`
 const ApiService = {
     ApiTopProduct: async () => {
         return await axios.get(URL)
@@ -19,6 +20,9 @@ const ApiService = {
     },
     ApiAllCategory: async ( ) => {
         return await axios.get(URL_Categories)
+    },
+    ApiSearchProduct: async (search) => {
+        return await axios.get(`${URL_Search}${search}`)
     }
 }
 

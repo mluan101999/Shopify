@@ -45,9 +45,9 @@ const CartList = ({ item }) => {
               +
             </button>
 
-            <button class="bin-button" onClick={() => dispatch(removeFromCart(item.id))}>
+            <button className="bin-button" onClick={() => dispatch(removeFromCart(item.id))}>
               <svg
-                class="bin-top"
+                className="bin-top"
                 viewBox="0 0 39 7"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const CartList = ({ item }) => {
                 ></line>
               </svg>
               <svg
-                class="bin-bottom"
+                className="bin-bottom"
                 viewBox="0 0 33 39"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

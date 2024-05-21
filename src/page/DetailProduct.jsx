@@ -184,9 +184,9 @@ export const DetailProduct = () => {
               </Button>
              
 
-              <div data-tooltip={(detailProduct.price -(detailProduct.discountPercentage / 100) * detailProduct.price).toFixed(2)} class="button" onClick={handleBuyNow}>
-                <div class="button-wrapper">
-                  <div class="text1">
+              <div data-tooltip={(detailProduct.price -(detailProduct.discountPercentage / 100) * detailProduct.price).toFixed(2)} className="button" onClick={handleBuyNow}>
+                <div className="button-wrapper">
+                  <div className="text1">
                   <FontAwesomeIcon
                   icon={faBagShopping}
                   style={{
@@ -197,10 +197,10 @@ export const DetailProduct = () => {
                 />
                 BUY NOW
                   </div>
-                  <span class="icon">
+                  <span className="icon">
                     <svg
                       viewBox="0 0 16 16"
-                      class="bi bi-cart2"
+                      className="bi bi-cart2"
                       fill="currentColor"
                       height="16"
                       width="16"

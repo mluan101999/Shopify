@@ -32,7 +32,7 @@ function getStyles(name, personName, theme) {
 const Checkout = () => {
   const theme = useTheme();
   const [voucher, setVoucher] = React.useState([]);
-  const cart = useSelector((state)=> state.cartSlice.cartItem)
+  const cart = useSelector((state) => state.cartSlice.cartItem)
   const handleChange = (event) => {
     const {
       target: { value },
@@ -58,95 +58,101 @@ const Checkout = () => {
           <div className="checkOutInfo">
 
             <div className="infomation">
-                <h3 style={{margin:0}}>Personal Infomation</h3>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <TextField label="Your Name" id="yourName" size="small" sx={{width:"95%"}}/>
-                <div style={{width:"95%",display:"flex",justifyContent:"space-between"}}>
-                  <TextField label="Email" id="email" size="small" sx={{width:"45%"}}/>
-                  <TextField label="Phone Number" id="phone" size="small" sx={{width:"45%"}}/>
-                </div>
+              <h3 style={{ margin: 0 }}>Personal Infomation</h3>
+              <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+              <TextField label="Your Name" id="yourName" size="small" sx={{ width: "95%" }} />
+              <div style={{ width: "95%", display: "flex", justifyContent: "space-between" }}>
+                <TextField label="Email" id="email" size="small" sx={{ width: "45%" }} />
+                <TextField label="Phone Number" id="phone" size="small" sx={{ width: "45%" }} />
+              </div>
             </div>
 
             <div className="shippingAddress">
-                <h3 style={{margin:0}}>Shipping Address</h3>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <div style={{width:"95%",display:"flex",justifyContent:"space-between"}}>
-                  <TextField label="Address" id="address" size="small" sx={{width:"65%"}}/>
-                  <TextField label="Postal Card" id="postal" size="small" sx={{width:"30%"}}/>
-                </div>
-                <div style={{width:"95%",display:"flex",justifyContent:"space-between"}}>
-                  <TextField label="City" id="city" size="small" sx={{width:"45%"}}/>
-                  <TextField label="Country" id="country" size="small" sx={{width:"45%"}}/>
-                </div>
+              <h3 style={{ margin: 0 }}>Shipping Address</h3>
+              <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+              <div style={{ width: "95%", display: "flex", justifyContent: "space-between" }}>
+                <TextField label="Address" id="address" size="small" sx={{ width: "65%" }} />
+                <TextField label="Postal Card" id="postal" size="small" sx={{ width: "30%" }} />
+              </div>
+              <div style={{ width: "95%", display: "flex", justifyContent: "space-between" }}>
+                <TextField label="City" id="city" size="small" sx={{ width: "45%" }} />
+                <TextField label="Country" id="country" size="small" sx={{ width: "45%" }} />
+              </div>
             </div>
 
             <div className="voucher">
-                <h3 style={{margin:0}}>Voucher</h3>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <FormControl sx={{ m: 1, width: 300 }}>
+              <h3 style={{ margin: 0 }}>Voucher</h3>
+              <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+              <FormControl sx={{ m: 1, width: 300 }}>
                 <InputLabel id="demo-multiple-name-label">Select vouchers</InputLabel>
-                  <Select
-                    labelId="demo-multiple-name-label"
-                    id="demo-multiple-name"
-                    multiple
-                    value={voucher}
-                    onChange={handleChange}
-                    input={<OutlinedInput label="Select vouchers" />}
-                    MenuProps={MenuProps}
-                  >
-                    {vouchers.map((voucher) => (
-                      <MenuItem
-                        key={voucher}
-                        value={voucher}
-                        style={getStyles(voucher, voucher, theme)}
-                      >
-                        {voucher}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
+                <Select
+                  labelId="demo-multiple-name-label"
+                  id="demo-multiple-name"
+                  multiple
+                  value={voucher}
+                  onChange={handleChange}
+                  input={<OutlinedInput label="Select vouchers" />}
+                  MenuProps={MenuProps}
+                >
+                  {vouchers.map((voucher) => (
+                    <MenuItem
+                      key={voucher}
+                      value={voucher}
+                      style={getStyles(voucher, voucher, theme)}
+                    >
+                      {voucher}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </div>
 
             <div className="paymentMethod">
-                <h3 style={{margin:0}}>Payment Method</h3>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Cash on delivery - COD" />
+              <h3 style={{ margin: 0 }}>Payment Method</h3>
+              <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Cash on delivery - COD" />
             </div>
 
           </div>
           <div className="checkOutOrder">
-                <h3 style={{margin:0}}>Item</h3>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                {/* div chứa giỏ hàng */}
-                {cart.map(item => 
-                  <div style={{display:"flex",alignItems:"center",marginTop:"5px"}} key={item.id}>
-                    <img src={item.thumbnail} width={"105px"} height={"83px"} style={{borderRadius:"10px",objectFit:"cover"}}></img>
-                    <div style={{marginLeft:"20px",marginRight:"200px"}}>
-                      <h5>{item.title}</h5>
-                      <button>remove</button>
-                    </div>
-                    <p>${parseFloat((item.price - (item.discountPercentage / 100) * item.price) *item.quantity).toFixed(2)}</p>
-                 </div>
-                )}
-               
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <div style={{display:"flex",justifyContent:"space-between"}}>
-                  <p>Subtotal</p>
-                  <p>${total}</p>
+            <h3 style={{ margin: 0 }}>Item</h3>
+            <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+            {/* div chứa giỏ hàng */}
+            {cart.map(item =>
+              <div style={{ display: "flex", alignItems: "center", marginTop: "5px" }} key={item.id}>
+                <div style={{width:"20%"}}>
+                  <img src={item.thumbnail} width={"105px"} height={"83px"} style={{ borderRadius: "10px" }}></img>
                 </div>
-                <div style={{display:"flex",justifyContent:"space-between"}}>
-                  <p>Discount</p>
-                  <p>$00.00</p>
+                <div style={{width:"50%"}}>
+                  <div style={{ marginLeft: "20px", marginRight: "200px",width:"100%" }}>
+                    <h5>{item.title}</h5>
+                    <button>remove</button>
+                  </div>
                 </div>
-                <div style={{display:"flex",justifyContent:"space-between"}}>
-                  <p>Shipping</p>
-                  <p>${shipping}</p>
+                <div style={{width:"15%",marginLeft:"98px"}}>
+                  <p>${parseFloat((item.price - (item.discountPercentage / 100) * item.price) * item.quantity).toFixed(2)}</p>
                 </div>
-                <Divider style={{ width: "90%", margin: "auto",marginTop:"0px",marginBottom:"0px" }} />
-                <div style={{display:"flex",justifyContent:"space-between"}}>
-                  <h4>Total</h4>
-                  <h4>${total + shipping}</h4>
-                </div>
+              </div>
+            )}
+
+            <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>Subtotal</p>
+              <p>${total}</p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>Discount</p>
+              <p>$00.00</p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>Shipping</p>
+              <p>${shipping}</p>
+            </div>
+            <Divider style={{ width: "90%", margin: "auto", marginTop: "0px", marginBottom: "0px" }} />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <h4>Total</h4>
+              <h4>${total + shipping}</h4>
+            </div>
           </div>
         </div>
       </div>

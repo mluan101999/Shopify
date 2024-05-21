@@ -14,30 +14,35 @@ import SaleProduct from "../component/Main/Sale/SaleProduct";
 
 const Home = () => {
   const dispatch = useDispatch();
+
   const loadDataTopProduct = async () => {
     const res = await ApiService.ApiTopProduct();
     const { products } = res.data;
     dispatch(ListProduct(products.slice(0, 8)));
     dispatch(NewProduct(products.slice(9,17)));
   };
+
   const loadDataSaleProduct = async () =>{
     const res = await ApiService.ApiAllProduct();
     const {products} = res.data;
-    // console.log(products);
     const saleProduct = products.sort((a,b) => b.discountPercentage - a.discountPercentage).slice(0,15);
-    console.log(saleProduct,"sale");
     dispatch(SaleProducts(saleProduct))
   }
-  if(localStorage.getItem('cartItems')){
-    const arrayItems = JSON.parse(localStorage.getItem('cartItems'));
-    dispatch(loadCartFromStore(arrayItems));
-  }else{
-    localStorage.setItem('cartItems', []);
-  }
+
   useEffect(() => {
+    const loadCart = () => {
+      if (localStorage.getItem('cartItems')) {
+        const arrayItems = JSON.parse(localStorage.getItem('cartItems'));
+        dispatch(loadCartFromStore(arrayItems));
+      } else {
+        localStorage.setItem('cartItems', JSON.stringify([]));
+      }
+    };
+
+    loadCart();
     loadDataTopProduct();
     loadDataSaleProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

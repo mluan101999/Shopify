@@ -53,6 +53,10 @@
   border: none;
 }
 
+.input input:focus {
+  outline: none;
+}
+
 .header1 .user {
   display: flex;
   flex-direction: row;
@@ -60,7 +64,6 @@
 }
 
 /* Done header */
-
 .panel {
   margin-top: 0cm;
   width: 100%;
@@ -514,6 +517,7 @@ button:hover .border {
 
 /* Animations */
 @keyframes ringA {
+
   from,
   4% {
     stroke-dasharray: 0 660;
@@ -561,6 +565,7 @@ button:hover .border {
 }
 
 @keyframes ringB {
+
   from,
   12% {
     stroke-dasharray: 0 220;
@@ -654,6 +659,7 @@ button:hover .border {
 }
 
 @keyframes ringD {
+
   from,
   8% {
     stroke-dasharray: 0 440;
@@ -715,20 +721,25 @@ button:hover .border {
   border: 3px solid rgb(255, 201, 201);
   transition-duration: 0.3s;
 }
+
 .bin-bottom {
   width: 15px;
 }
+
 .bin-top {
   width: 17px;
   transform-origin: right;
   transition-duration: 0.3s;
 }
+
 .bin-button:hover .bin-top {
   transform: rotate(18deg);
 }
+
 .bin-button:hover {
   background-color: rgb(255, 0, 0);
 }
+
 .bin-button:active {
   transform: scale(0.9);
 }
@@ -853,7 +864,6 @@ button:hover .border {
 /* Page CheckOut */
 .checkOut {
   width: 90%;
-  /* height: auto; */
   margin: auto;
   display: flex;
   padding: 15px;
@@ -890,7 +900,7 @@ button:hover .border {
   padding-bottom: 17px;
 }
 
-.shippingAddress{
+.shippingAddress {
   width: 90%;
   display: flex;
   height: auto;
@@ -903,7 +913,7 @@ button:hover .border {
   padding-bottom: 17px;
 }
 
-.voucher{
+.voucher {
   width: 90%;
   display: flex;
   height: auto;
@@ -916,7 +926,7 @@ button:hover .border {
   padding-bottom: 17px;
 }
 
-.paymentMethod{
+.paymentMethod {
   width: 90%;
   display: flex;
   height: auto;
@@ -929,4 +939,60 @@ button:hover .border {
   padding-bottom: 17px;
 }
 
+/* .quantity-checkout {
+  position: absolute;
+  top: 143px;
+  right: 510px;
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  border-radius: 100%;
+  color: white;
+  align-items: center;
+} */
 
+.profile{
+  width: 90%;
+  height: auto;
+  margin: auto;
+  display: flex;
+}
+.profile h3{
+  margin: 3px;
+}
+.profileLeft{
+  width: 30%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.profileRight{
+  width: 65%;
+  height: auto;
+  margin: auto;
+  margin-left: 0;
+}
+
+/* Search Page */
+.search{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.searchItems{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  gap: 5px;
+  flex-wrap: wrap;
+}

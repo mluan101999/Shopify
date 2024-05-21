@@ -17,7 +17,7 @@ const Wishlist = () => {
             ))}
           </div>
         ) : (
-          <img src="https://i.pinimg.com/originals/f6/e4/64/f6e464230662e7fa4c6a4afb92631aed.png" width={"80%"} height={"490px"}/>
+          <img src="https://i.pinimg.com/originals/f6/e4/64/f6e464230662e7fa4c6a4afb92631aed.png" width={"80%"} height={"100%"}/>
         )}
       </div>
     </div>
