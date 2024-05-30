@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { faReceipt } from "@fortawesome/free-solid-svg-icons";
 import { updateOpenDrawer } from "../redux/feature/drawerSlice";
 import { NavLink } from "react-router-dom";
-
+import emptyCart from "../assets/images/emptyCart.jpg"
 export const DrawerCart = ({ cartItem }) => {
   const dispatch = useDispatch();
   const isOpenDrawer = useSelector((state) => state.drawerSlice.isOpenDrawer);
@@ -14,9 +14,11 @@ export const DrawerCart = ({ cartItem }) => {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
   useEffect(() => {
     setOpen(isOpenDrawer);
   }, [isOpenDrawer]);
+  
   let total = 0;
   const getTotal = cartItem.map((item) => {
     return (total +=
@@ -61,7 +63,10 @@ export const DrawerCart = ({ cartItem }) => {
           </NavLink>
         </div>
       ) : (
-        <div></div>
+        <div style={{display:"flex",flexDirection:"column",justifyContent:'center',alignItems:'center',marginTop:"20px"}}>
+          <img src={emptyCart} width={"100px"} height={"100px"}/>
+          <h5>Your cart is empty</h5>
+        </div>
       )}
     </Box>
   );

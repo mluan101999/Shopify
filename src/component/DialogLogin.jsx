@@ -58,21 +58,43 @@ function DialogLogin() {
           Please log in to add products and see your cart.
         </DialogContentText>
         <Typography component="div" style={{ margin: "5px" }}>
-          <TextField
+          {/* <TextField
             id="standard-username"
             label="Username (mluan99)"
             variant="standard"
             name="username"
             onChange={handleChange}
             value={formLogin.username}
+            fullWidth
+          /> */}
+          <TextField
+            id="outlined-password-input"
+            label="Username (mluan99)"
+            autoComplete="current-password"
+            size="small"
+            name="username"
+            onChange={handleChange}
+            value={formLogin.username}
+            fullWidth
           />
         </Typography>
         <Typography component="div" style={{ margin: "5px" }}>
-          <TextField
+          {/* <TextField
             type="password"
             id="standard-password"
             label="Password (291099)"
             variant="standard"
+            name="password"
+            onChange={handleChange}
+            value={formLogin.password}
+          /> */}
+          <TextField
+            id="outlined-password-input"
+            label="Password (291099)"
+            type="password"
+            autoComplete="current-password"
+            fullWidth="true"
+            size="small"
             name="password"
             onChange={handleChange}
             value={formLogin.password}

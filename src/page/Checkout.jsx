@@ -3,7 +3,8 @@ import Header from "../component/Header/Header";
 import { Checkbox, Divider, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import empty from "../assets/images/wishlitEmpty.png"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, reduceFromCart } from "../redux/feature/cartSlice";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -17,7 +18,7 @@ const MenuProps = {
 
 
 const vouchers = [
-  'Oliver Hansen',
+  'MUAHECUONGNHIET',
 ];
 
 function getStyles(name, personName, theme) {
@@ -30,6 +31,7 @@ function getStyles(name, personName, theme) {
 }
 
 const Checkout = () => {
+  const dispatch= useDispatch();
   const theme = useTheme();
   const [voucher, setVoucher] = React.useState([]);
   const cart = useSelector((state) => state.cartSlice.cartItem)
@@ -38,8 +40,15 @@ const Checkout = () => {
       target: { value },
     } = event;
     setVoucher(
-      // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+  const handleAddToCart = (item) => {
+    dispatch(
+      addToCart({
+        ...item,
+        quantity: 0,
+      })
     );
   };
   let shipping = 2.00;
@@ -124,8 +133,23 @@ const Checkout = () => {
                   <img src={item.thumbnail} width={"105px"} height={"83px"} style={{ borderRadius: "10px" }}></img>
                 </div>
                 <div style={{width:"50%"}}>
-                  <div style={{ marginLeft: "20px", marginRight: "200px",width:"100%" }}>
-                    <h5>{item.title}</h5>
+                  <div style={{ marginLeft: "20px", marginRight: "200px",width:"100%"}}>
+                    <h5>{item.title} </h5>
+                  </div>
+                  <div style={{ marginLeft: "20px", marginRight: "200px",width:"100%",display:"flex",height:"20px",alignItems:"center"}}>
+                  <button
+                    style={{ marginRight: "5px" }}
+                    onClick={() => dispatch(reduceFromCart(item.id))}
+                  >
+                    -
+                  </button>
+                  <p style={{ fontWeight: "bold" }}>{item.quantity}</p>
+                  <button
+                    style={{ marginLeft: "5px" }}
+                    onClick={() => handleAddToCart(item)}
+                  >
+                    +
+                  </button>
                   </div>
                 </div>
                 <div style={{width:"15%",marginLeft:"98px"}}>

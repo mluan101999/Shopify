@@ -46,7 +46,7 @@ export const DetailProduct = () => {
   };
   useEffect(() => {
     loadDataDetail();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     loadDataSimilarProduct();
@@ -90,7 +90,6 @@ export const DetailProduct = () => {
   const handleGetImg = (img) => {
     setImg(img);
   };
-  console.log(img);
   return (
     <>
       <Header />
@@ -99,7 +98,7 @@ export const DetailProduct = () => {
           <div style={{ width: "25%", height: "auto" }}>
             <div>
               <img
-                src={img ?? detailProduct.thumbnail}
+                src={detailProduct.thumbnail}
                 width={"300px"}
                 height={"300px"}
                 style={{ objectFit: "cover" }}
